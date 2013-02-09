@@ -82,3 +82,8 @@ Then /^(?:|I )should see (\d+) rows$/ do |nFilas|
     page.all('table#movies tr').count.should == Integer(nFilas)+1
   end
 end
+Then /^I should see '(.*)' before '(.*)'$/ do |cadena1,cadena2|
+  posCadena1=page.body.index(cadena1)
+  posCadena2=page.body.index(cadena2)
+  assert (posCadena1<posCadena2)
+end
